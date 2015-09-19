@@ -15,7 +15,7 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
 
-    private static final String APP_DEBUG = "SIMPLE_THREAD_DEBUG";
+    private static final String APP_DEBUG  = "SIMPLE_THREAD_DEBUG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

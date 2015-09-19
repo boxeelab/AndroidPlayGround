@@ -18,11 +18,25 @@
         android:id="@+id/btnStartThread"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/start_asyncthread"
         android:layout_below="@+id/txtApplicationGreeting"
+        android:layout_margin="10dp"
         android:onClick="onClick"
+        android:text="@string/start_asyncthread" />
 
-        />
+    <Button
+        android:id="@+id/btnCancelThread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnStartThread"
+        android:layout_margin="10dp"
+        android:onClick="onClick"
+        android:text="@string/cancel_asyncthread" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="200dp"
+        android:layout_height="6dp"
+        android:layout_below="@+id/btnCancelThread" />
 
 </RelativeLayout>

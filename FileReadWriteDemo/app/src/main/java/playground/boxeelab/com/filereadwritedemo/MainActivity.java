@@ -1,9 +1,13 @@
 package playground.boxeelab.com.filereadwritedemo;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,6 +15,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String APP_DEBUG = "FILE_READ_WRITE_DEMO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onClick(View view)
+    {
+        writeBasicFile();
+    }
+
+    /**
+     * Creating file in UI thread is not a good idea. We should always create it in a separate thread.
+     * For simplicity I am creating file in UI thread.
+     *
+     */
     public void writeBasicFile() {
         String name = "test.txt";
         String path = "test";
@@ -50,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             fileOutputStream.write(sampleContent.getBytes(), 0, sampleContent.getBytes().length);
             fileOutputStream.close();
+            Log.d(APP_DEBUG, "File create successfully");
         } catch (IOException ioexp) {
 
         }

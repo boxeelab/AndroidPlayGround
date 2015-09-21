@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">FileReadWriteDemo</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">This is sample file read write application</string>
     <string name="action_settings">Settings</string>
+    <string name="btn_level_simple_write">Write Basic File</string>
+
 </resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HandlerDemo</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_new_message">Add new message</string>
+    <string name="add_new_runnable">Add new runnable</string>
+</resources>

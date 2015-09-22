@@ -13,7 +13,7 @@ import android.widget.Toast;
  * This application demonstrate asynctask
  * doInBackground execute does not run on ui thread
  * consider onpause to cancel the thread
- * check for oncancel inside doInBackGroud 
+ * check for oncancel inside doInBackGroud
  */
 public class MainActivity extends AppCompatActivity {
 

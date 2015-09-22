@@ -73,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
     public void addNewMessage() {
         Message msg = handlerDemo.obtainMessage(MSG_TYPE_1);
         msg.arg1 = 1;
-        // Use bundle to set additional data in message object
+        //Use bundle to set additional data in message object
         //Bundle bundle = new Bundle();
         //msg.setData(bundle);
-        handlerDemo.handleMessage(msg);
+        handlerDemo.sendMessage(msg);
     }
 
     public void addNewRunnable() {

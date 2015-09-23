@@ -3,8 +3,10 @@ package com.boxeelab.playground.jsonreaderdemo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.JsonReader;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,6 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String APP_DEBUG = "JSON_READ_DEBUG";
 
     //add a sample json here to read
 
@@ -71,19 +74,24 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onClick(View view)
+    {
+        readJason(sampleJson);
+    }
+
     private void readJason(String json)
     {
-        // read json object and read array
-        // read user object
-        // the display in log
+
         InputStream inputStream = new ByteArrayInputStream(json.getBytes());
         JsonReader jsonReader = new JsonReader(new InputStreamReader(inputStream));
         try {
             jsonReader.beginArray();
             while(jsonReader.hasNext())
             {
-                jsonReader.nextName();
-                
+
+                String name =jsonReader.nextName();
+                Log.d(APP_DEBUG, name);
+
             }
             jsonReader.endArray();
         } catch (IOException e) {

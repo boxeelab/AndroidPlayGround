@@ -3,6 +3,7 @@ package com.boxeelab.playground.jsonreaderdemo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.JsonReader;
+import android.util.JsonToken;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             "     \"user\": {\n" +
             "       \"name\": \"android_newb\",\n" +
             "       \"followers_count\": 41\n" +
-            "      \n" +
+            "      }\n" +
             "   },\n" +
             "   {\n" +
             "     \"id\": 912345678902,\n" +
@@ -79,18 +80,50 @@ public class MainActivity extends AppCompatActivity {
         readJason(sampleJson);
     }
 
+    /**
+     * JasonReader skip value can skip entire object or just a value
+     * to write genereic json read use peek function and match with JsonToken constant.
+     *
+     * @param json
+     */
     private void readJason(String json)
     {
-
         InputStream inputStream = new ByteArrayInputStream(json.getBytes());
         JsonReader jsonReader = new JsonReader(new InputStreamReader(inputStream));
+        jsonReader.setLenient(true);
         try {
             jsonReader.beginArray();
             while(jsonReader.hasNext())
             {
+                jsonReader.beginObject();
+                Log.d(APP_DEBUG, "Statring of the object");
+                while(jsonReader.hasNext()) {
+                    String name = jsonReader.nextName();
+                    Log.d(APP_DEBUG, name);
+                    if(name.equals("id"))
+                    {
+                        jsonReader.nextLong();
+                    }else if(name.equals("text"))
+                    {
+                        jsonReader.nextString();
+                    }
+                    else if(name.equals("geo") && jsonReader.peek() != JsonToken.NULL)
+                    {
+                        jsonReader.skipValue();
+                        
+                    }
+                    else if(name.equals("user"))
+                    {
+                        jsonReader.skipValue();
+                    }
+                    else
+                    {
+                        jsonReader.skipValue();
+                    }
 
-                String name =jsonReader.nextName();
-                Log.d(APP_DEBUG, name);
+                }
+
+                jsonReader.endObject();
 
             }
             jsonReader.endArray();

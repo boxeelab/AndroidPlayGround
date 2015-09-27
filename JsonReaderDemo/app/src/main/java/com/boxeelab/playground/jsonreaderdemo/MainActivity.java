@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     else if(name.equals("geo") && jsonReader.peek() != JsonToken.NULL)
                     {
                         jsonReader.skipValue();
-                        
+
                     }
                     else if(name.equals("user"))
                     {

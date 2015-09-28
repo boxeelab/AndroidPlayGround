@@ -16,6 +16,9 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+/*
+  xml reader
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String APP_DEBUG = "XML_READER_DOCUMENT";

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AnimationDemo</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="btn_fade_animation">FADE</string>
+    <string name="btn_object_animation">Object Animation</string>
+</resources>
